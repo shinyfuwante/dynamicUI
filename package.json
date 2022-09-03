@@ -1,0 +1,25 @@
+{
+  "name": "dynamicui",
+  "version": "1.0.0",
+  "description": "Basic UI elements to derust myself from web dev fundamentals I've learned",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinyfuwante/dynamicUI.git"
+  },
+  "author": "shinyfuwante",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shinyfuwante/dynamicUI/issues"
+  },
+  "homepage": "https://github.com/shinyfuwante/dynamicUI#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

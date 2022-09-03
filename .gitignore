@@ -1,0 +1,9 @@
+#exclude node_modules
+/node_modules/
+package-lock.json
+
+#exclude dist until v1.0
+/dist/
+
+#any .DS_Store
+.DS_Store
