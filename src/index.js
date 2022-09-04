@@ -1,6 +1,7 @@
 import "./styles/reset.css";
 import "./styles/dropdown.css";
 import initializeDropDown from "./dropdown";
+import initializeCarousel from "./carousel"
 
 const mainElement = document.querySelector("div#content");
 // create tabs/buttons
@@ -32,7 +33,7 @@ const buttons = (() => {
   });
   carouselButton.addEventListener("click", () => {
     clearPage();
-    // initializeDropDown();
+    initializeCarousel();
     console.log('clicked carousel');
   });
   return {
