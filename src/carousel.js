@@ -6,15 +6,15 @@ import img4 from "./imgs/img4.jpeg";
 import img5 from "./imgs/img5.jpeg";
 
 const mainElement = document.querySelector("div#content");
-const pictureArray = { img1, img2, img3, img4, img5 };
+const pictureArray = [img1, img2, img3, img4, img5];
 let currentSlideIndex = 0;
 const initializeCarousel = () => {
   const galleryElement = document.createElement("div");
-  galleryElement.id("gallery");
+  galleryElement.id = "gallery";
   mainElement.appendChild(galleryElement);
-
   // throw in the 5 images
   for (let i = 0; i < pictureArray.length; i++) {
+    console.log("trying to add image");
     const picture = document.createElement("img");
     picture.src = pictureArray[i];
     picture.classList.add("gallery-pic");
