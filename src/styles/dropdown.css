@@ -1,0 +1,15 @@
+.dropdown-menu {
+    border: 2px solid chartreuse;
+    width: 100px;
+    height: auto;
+    text-align: center;
+}
+
+.dropdown-element {
+    display: none;
+    z-index: 1;
+}
+
+.dropdown-element.visible {
+    display: block;
+}
