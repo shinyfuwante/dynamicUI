@@ -1,3 +1,5 @@
+import './styles/reset.css';
+import './styles/dropdown.css';
 // 1) Dropdown menu
 // element that on click, will display the list
 // can do on hover also.
