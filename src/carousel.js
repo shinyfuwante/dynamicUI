@@ -18,6 +18,7 @@ rightArrow.classList.add('right');
 let currentSlideIndex = 0;
 const displaySlide = (n) => {
     console.log(`call display slide with value: ${n}`);
+    const dots = document.querySelectorAll('.navigation-dot');
   if (n > pictureArray.length - 1) {
     currentSlideIndex = 0;
   }
@@ -26,8 +27,10 @@ const displaySlide = (n) => {
   }
   for (let i = 0; i < galleryElement.children.length; i++) {
     galleryElement.children[i].classList.add("invisible");
+    dots[i].classList.remove("active");
   }
   galleryElement.children[currentSlideIndex].classList.remove("invisible");
+  dots[currentSlideIndex].classList.add("active");
 };
 const changeSlides = (n) => {
   displaySlide((currentSlideIndex += n));
@@ -44,14 +47,20 @@ const initializeCarousel = () => {
   for (let i = 0; i < pictureArray.length; i++) {
     const picture = document.createElement("img");
     picture.src = pictureArray[i];
-    picture.classList.add("gallery-pic");
+    picture.classList.add("gallery-pic", "fade");
     galleryElement.appendChild(picture);
+
+    const dot = document.createElement('span');
+    dot.classList.add('navigation-dot');
+    dot.addEventListener('click', () => skipToSlide(i));
+    mainElement.appendChild(dot);
   }
   mainElement.appendChild(leftArrow);
   mainElement.appendChild(rightArrow);
   skipToSlide(0);
   leftArrow.addEventListener('click', () => changeSlides(1));
   rightArrow.addEventListener('click', () => changeSlides(-1));
+  setTimeout(() => changeSlides(1), 2000);
 };
 
 export default initializeCarousel;
