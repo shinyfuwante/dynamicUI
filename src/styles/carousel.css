@@ -1,0 +1,12 @@
+.invisible {
+    display: none;
+}
+
+#left, #right {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 8px;
+    color: beige;
+}

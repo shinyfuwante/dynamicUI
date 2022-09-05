@@ -1,5 +1,6 @@
 import "./styles/reset.css";
 import "./styles/dropdown.css";
+import "./styles/carousel.css";
 import initializeDropDown from "./dropdown";
 import initializeCarousel from "./carousel"
 

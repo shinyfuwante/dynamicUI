@@ -7,40 +7,43 @@ import img5 from "./imgs/img5.jpeg";
 
 const mainElement = document.querySelector("div#content");
 const pictureArray = [img1, img2, img3, img4, img5];
+const galleryElement = document.createElement("div");
+const leftArrow = document.createElement('a#left');
+const rightArrow = document.createElement('a#right');
+
 let currentSlideIndex = 0;
+const displaySlide = (n) => {
+  if (n > pictureArray.length - 1) {
+    currentSlideIndex = 0;
+  }
+  if (n < 0) {
+    currentSlideIndex = pictureArray.length - 1;
+  }
+  for (let i = 0; i < galleryElement.children.length; i++) {
+    galleryElement.children[i].classList.add("invisible");
+  }
+  galleryElement.children[currentSlideIndex].classList.remove("invisible");
+};
+const changeSlides = (n) => {
+  displaySlide((currentSlideIndex += n));
+};
+
+const skipToSlide = (n) => {
+  displaySlide((currentSlideIndex = n));
+};
 const initializeCarousel = () => {
-  const galleryElement = document.createElement("div");
   galleryElement.id = "gallery";
   mainElement.appendChild(galleryElement);
   // throw in the 5 images
   for (let i = 0; i < pictureArray.length; i++) {
-    console.log("trying to add image");
     const picture = document.createElement("img");
     picture.src = pictureArray[i];
     picture.classList.add("gallery-pic");
     galleryElement.appendChild(picture);
   }
-};
-
-// display the slide at index (currentSlideIndex)
-const displaySlide = () => {};
-// create left and right functions
-const slideLeft = () => {
-  // assume currentSlide is 0..
-  if (currentSlideIndex === 0) {
-    currentSlideIndex = pictureArray.length - 1;
-  } else {
-    currentSlideIndex -= 1;
-  }
-};
-
-const slideRight = () => {
-  // assume currentSlide is 0..
-  if (currentSlideIndex === pictureArray.length - 1) {
-    currentSlideIndex = 0;
-  } else {
-    currentSlideIndex += 1;
-  }
+  mainElement.appendChild(leftArrow);
+  mainElement.appendChild(rightArrow);
+  skipToSlide(0);
 };
 
 export default initializeCarousel;
