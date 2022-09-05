@@ -8,11 +8,16 @@ import img5 from "./imgs/img5.jpeg";
 const mainElement = document.querySelector("div#content");
 const pictureArray = [img1, img2, img3, img4, img5];
 const galleryElement = document.createElement("div");
-const leftArrow = document.createElement('a#left');
-const rightArrow = document.createElement('a#right');
+const leftArrow = document.createElement('a');
+leftArrow.classList.add('left');
+leftArrow.innerText = '←';
+const rightArrow = document.createElement('a');
+rightArrow.innerText = '→';
+rightArrow.classList.add('right');
 
 let currentSlideIndex = 0;
 const displaySlide = (n) => {
+    console.log(`call display slide with value: ${n}`);
   if (n > pictureArray.length - 1) {
     currentSlideIndex = 0;
   }
@@ -31,6 +36,7 @@ const changeSlides = (n) => {
 const skipToSlide = (n) => {
   displaySlide((currentSlideIndex = n));
 };
+
 const initializeCarousel = () => {
   galleryElement.id = "gallery";
   mainElement.appendChild(galleryElement);
@@ -44,6 +50,8 @@ const initializeCarousel = () => {
   mainElement.appendChild(leftArrow);
   mainElement.appendChild(rightArrow);
   skipToSlide(0);
+  leftArrow.addEventListener('click', () => changeSlides(1));
+  rightArrow.addEventListener('click', () => changeSlides(-1));
 };
 
 export default initializeCarousel;
